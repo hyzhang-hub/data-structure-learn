@@ -1,6 +1,4 @@
-package binaryTree;
-
-import sun.awt.image.ImageWatched;
+package primary.binaryTree;
 
 import java.util.LinkedList;
 import java.util.Queue;

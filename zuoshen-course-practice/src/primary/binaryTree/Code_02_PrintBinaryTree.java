@@ -1,4 +1,4 @@
-package binaryTree;
+package primary.binaryTree;
 
 public class Code_02_PrintBinaryTree {
     public static class Node{

@@ -1,4 +1,4 @@
-package binaryTree;
+package primary.binaryTree;
 
 public class Code_06_IsBalancedTree {
     public static class Node {

@@ -1,4 +1,4 @@
-package binaryTree;
+package primary.binaryTree;
 
 public class Code_03_SuccessorNode {
     public static class Node {

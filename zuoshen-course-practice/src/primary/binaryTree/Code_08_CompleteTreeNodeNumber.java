@@ -1,4 +1,4 @@
-package binaryTree;
+package primary.binaryTree;
 
 public class Code_08_CompleteTreeNodeNumber {
     public static class Node {
