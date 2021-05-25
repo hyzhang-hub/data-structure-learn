@@ -66,14 +66,67 @@ public class Code_07_IsBSTAndCBT {
             }else{
                 node = stack.pop();
                 //比较
-                if (pre.value > node.value){
+                if (pre.value >= node.value){
                     return false;
+                }else{
+                    pre = node;
                 }
                 node = node.right;
             }
         }
 
         return true;
+    }
+
+    public static class ReturnData{
+        public boolean isBST;
+        public int min;
+        public int max;
+
+        public ReturnData(boolean isBST, int min, int max){
+            this.isBST = isBST;
+            this.min = min;
+            this.max = max;
+        }
+    }
+
+    public static ReturnData process(Node x){
+        if (x == null){
+            return null;
+        }
+
+        ReturnData leftData = process(x.left);
+        ReturnData rightData = process(x.right);
+
+        int min = x.value;
+        int max = x.value;
+
+        if (leftData != null){
+            min = Math.min(min, leftData.min);
+            max = Math.max(max, leftData.max);
+        }
+        if (rightData != null){
+            min = Math.min(min, rightData.min);
+            max = Math.max(max, rightData.max);
+        }
+
+//        boolean isBst = true;
+//        if (leftData != null && (!leftData.isBST || leftData.max >= x.value)){
+//            isBst = false;
+//        }
+//        if (rightData != null && (!rightData.isBST || x.value >=rightData.min)){
+//            isBst =false;
+//        }
+        boolean isBST = false;
+        if (
+                (leftData != null ? (leftData.isBST && leftData.max < x.value) : true)
+                &&
+                        (rightData != null ? (leftData.isBST && rightData.min > x.value) :true)
+        ){
+            isBST = true;
+        }
+
+        return new ReturnData(isBST, min, max);
     }
 
     /**
@@ -112,6 +165,40 @@ public class Code_07_IsBSTAndCBT {
 
         return true;
     }
+
+    public static class Info{
+        public int height;
+        public int nodes;
+        public Info(int height, int nodes){
+            this.height = height;
+            this.nodes = nodes;
+        }
+    }
+
+    public static boolean isFull(Node head){
+        if (head == null) {
+            return true;
+        }
+        Info data = f(head);
+        return data.nodes == (1 << data.height - 1);
+    }
+
+    public static Info f(Node x){
+        if (x == null){
+            return new Info(0, 0);
+        }
+        Info leftData = f(x.left);
+        Info rightData = f(x.right);
+
+        int heght = Math.max(leftData.height, rightData.height);
+        int nodes = leftData.nodes + rightData.nodes + 1;
+        return new Info(heght, nodes);
+
+    }
+
+
+
+
 
 
     // for test -- print tree

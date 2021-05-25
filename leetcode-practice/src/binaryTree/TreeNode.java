@@ -1,4 +1,4 @@
-package primary.binaryTree;
+package binaryTree;
 
 public class TreeNode {
 

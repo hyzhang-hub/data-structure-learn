@@ -39,6 +39,7 @@ public class Code_01_TrieTree {
             node.end++;
         }
 
+        //删除字符串
         public void delete(String word){
             if (search(word) != 0){
                 char[] chars = word.toCharArray();
