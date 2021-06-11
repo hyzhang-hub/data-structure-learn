@@ -56,7 +56,7 @@ public class lt_200 {
         return res;
     }
     public void infect(char[][] grid, int i, int j, int M, int N){
-        if (i < 0 || i >= M || j < 0 || j >= M || grid[i][j] != '1'){
+        if (i < 0 || i >= M || j < 0 || j >= N || grid[i][j] != '1'){
             return;
         }
         grid[i][j] = '2';

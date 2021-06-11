@@ -5,7 +5,12 @@ import java.util.List;
 
 public class Code_04_UnionFind {
     public static class Node {
-        // whatever you like
+        int i;
+        int j;
+        public Node(int i, int j){
+            this.i = i;
+            this.j = j;
+        }
     }
 
     public static class UnionFindSet {

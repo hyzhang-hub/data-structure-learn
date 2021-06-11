@@ -60,13 +60,30 @@ public class Code01_RobotWalk {
         return dp[rest][cur];
     }
 
-    public static int walkWays3(int N, int E, int S, int K){
-        return 0;
+    public static int walkWays3(int N, int M, int K, int P) {
+        // 参数无效直接返回0
+        if (N < 2 || K < 1 || M < 1 || M > N || P < 1 || P > N) {
+            return 0;
+        }
+        int[][] dp = new int[K + 1][N + 1];
+        dp[0][P] = 1;
+        for (int i = 1; i <= K; i++) {
+            for (int j = 1; j <= N; j++) {
+                if (j == 1) {
+                    dp[i][j] = dp[i - 1][2];
+                } else if (j == N) {
+                    dp[i][j] = dp[i - 1][N - 1];
+                } else {
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j + 1];
+                }
+            }
+        }
+        return dp[K][M];
     }
 
     public static void main(String[] args) {
         System.out.println(walkWays1(7, 4, 9, 5));
-        System.out.println(walkWays2(7, 4, 9, 5));
+//        System.out.println(walkWays2(7, 4, 9, 5));
         System.out.println(walkWays3(7, 4, 9, 5));
     }
 
