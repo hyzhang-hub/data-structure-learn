@@ -1,5 +1,7 @@
 package stack;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class lt_1190 {
@@ -50,5 +52,7 @@ public class lt_1190 {
         String s = "(ed(et(oc))el)";
         String s1 = new lt_1190().reverseParentheses(s);
         System.out.println(s1);
+        ArrayList list = new ArrayList();
+        LinkedList linkedList = new LinkedList();
     }
 }
